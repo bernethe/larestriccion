@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/bernethe/larestriccion#readme",
   "dependencies": {
-    "bootstrap": "^4.4.1"
+    "bootstrap": "^4.4.1",
+    "normalize-scss": "^7.0.1"
   }
 }

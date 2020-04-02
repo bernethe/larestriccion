@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Restricción - Restricción vehicular sanitaria emitida por Costa Rica en semana santa</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-12 text-center"><h1>La Restricción</h1></div>
+	</div>
+	<div class="row">
+		<div class="col-4 col-sm-2 offset-4 offset-sm-5">
+			<img src="img/no-circula.png" alt="La Restricción" class="img-fluid">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-10 offset-1 text-center">
+			<small>Seleccione el último dígito de su número de placa para conocer cuando circula.</small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6 col-sm-4 offset-3 offset-sm-4">
+			<select id="placa">
+				<option value="-1"></option>
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+			</select>
+		</div>
+	</div>
+</div>
+<div class="container d-none" id="resultado">
+	<div class="row">
+		<div class="col-sm-4 mb-4">
+			<h2 class="text-center">Cuando sí circula</h2>
+			<figure class="pl-5 pr-5"><img src="img/semaforo-verde.svg" alt="Sí circula" class="img-fluid"></figure>
+			<ul id="si_ul"></ul>
+			<small>Permitido únicamente de 5:00am a 5:00pm</small>
+		</div>
+		<div class="col-sm-4 mb-4">
+			<h2 class="text-center">Cuando medio circula</h2>
+			<figure class="pl-5 pr-5"><img src="img/semaforo-amarillo.svg" alt="Medio circula" class="img-fluid"></figure>
+			<ul id="medio_ul"></ul>
+			<small>Permitido únicamente para abasto y farmacia</small>
+		</div>
+		<div class="col-sm-4 mb-4">
+			<h2 class="text-center">Cuando no circula</h2>
+			<figure class="pl-5 pr-5"><img src="img/semaforo-rojo.svg" alt="No circula" class="img-fluid"></figure>
+			<ul id="no_ul"></ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>
