@@ -1,0 +1,22 @@
+{
+  "name": "larestriccion",
+  "version": "1.0.0",
+  "description": "Sitio web donde podrás ver la restricción vehicular sanitaria emitida por Costa Rica en semana santa a causa del coronavirus.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bernethe/larestriccion.git"
+  },
+  "author": "Harold Bernethe Soto González",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bernethe/larestriccion/issues"
+  },
+  "homepage": "https://github.com/bernethe/larestriccion#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
+}
