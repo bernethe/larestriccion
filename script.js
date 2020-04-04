@@ -1,5 +1,6 @@
 'use strict';
 
+var _now;
 var _d = [
 	{
 		'placa': 0,
@@ -70,6 +71,7 @@ function main() {
 }
 function cambioPlaca() {
 	var _s = document.getElementById('placa').value;
+	_now = new Date();
 
 	vaciarUL(document.getElementById('si_ul'));
 	vaciarUL(document.getElementById('medio_ul'));
@@ -89,7 +91,14 @@ function cambioPlaca() {
 function poblarUL(_ul,_datos) {
 	for(var i = 0; i < _datos.length; i++) {
 		var _str = (_day[_datos[i]-4])+' '+_datos[i]+' de abril';
-		_ul.appendChild( createCustomElement('li',{},[_str]) );
+		console.log(_now.getDate() == _datos[i],_datos[i])
+		if(_now.getDate() == _datos[i] && _now.getMonth() == 3 && _now.getFullYear() == 2020) {
+			_ul.appendChild( createCustomElement('li',{'class':'texto-resaltado'},[
+				createCustomElement('strong',{},[_str+' ⬅'])
+			]) );
+		} else {
+			_ul.appendChild( createCustomElement('li',{},[_str]) );
+		}
 	}
 }
 function vaciarUL(_sel) {
