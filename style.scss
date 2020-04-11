@@ -9,6 +9,11 @@
 @import "node_modules/bootstrap/scss/bootstrap.scss";*/
 //@include media-breakpoint-between(xs, sm) {}
 
+$_v: #44A429;
+$_a: #F7931F;
+$_r: #C1272D;
+$_blue: #29489C;
+
 @mixin xlink {
 	&, &:link, &:active, &:hover, &:visited {@content;}
 }
@@ -41,8 +46,8 @@ h1 {
 }
 #placa {
 	background-color: #fff;
-	color: #29489C;
-	border: 5px solid #29489C;
+	color: $_blue;
+	border: 5px solid $_blue;
 	padding: 1ems;
 	text-align: center;
 	border-radius: 10px;
@@ -57,5 +62,34 @@ h1 {
 	padding: .25em;
 }
 .texto-resaltado {
-	color: #29489C;
+	color: $_blue;
+}
+.card {
+	background-color: $_v;
+	color: #fff;
+	border-radius: .5em;
+	padding: .5em;
+	margin: .5em 0;
+
+	&.restricted-red {
+		background-color: $_r;
+	}
+	&.restricted-yellow {
+		background-color: $_a;
+		color: #000
+	}
+}
+.notas {
+	font-size: .75em;
+}
+i.pc {
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	margin-right: .5em;
+	border-radius: 50%;
+
+	&.pc-green { background-color: $_v; }
+	&.pc-red { background-color: $_r; }
+	&.pc-yellow { background-color: $_a; }
 }

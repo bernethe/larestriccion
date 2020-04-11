@@ -71,27 +71,6 @@ function main() {
 }
 function cambioPlaca() {
 	var _s = document.getElementById('placa').value;
-
-	//console.log(Math.ceil(_s/2));
-
-	if(document.querySelector('.card.restricted-red') != null) {
-		document.querySelector('.card.restricted-red').classList.remove('restricted-red');
-	}
-	if(document.querySelector('.card.restricted-yellow') != null) {
-		document.querySelector('.card.restricted-yellow').classList.remove('restricted-yellow');
-	}
-	
-	document.querySelector('#semana .col:nth-child('+((_s%2)+6)+') .card').classList.add('restricted-yellow');
-
-	if(_s==0) {
-		_s = 10;
-	}
-	document.querySelector('#semana .col:nth-child('+Math.ceil(_s/2)+') .card').classList.add('restricted-red');
-
-	
-	if(_s==10) {
-		_s = 0;
-	}
 	_now = new Date();
 
 	vaciarUL(document.getElementById('si_ul'));
@@ -112,7 +91,7 @@ function cambioPlaca() {
 function poblarUL(_ul,_datos) {
 	for(var i = 0; i < _datos.length; i++) {
 		var _str = (_day[_datos[i]-4])+' '+_datos[i]+' de abril';
-		//console.log(_now.getDate() == _datos[i],_datos[i])
+		console.log(_now.getDate() == _datos[i],_datos[i])
 		if(_now.getDate() == _datos[i] && _now.getMonth() == 3 && _now.getFullYear() == 2020) {
 			_ul.appendChild( createCustomElement('li',{'class':'texto-resaltado'},[
 				createCustomElement('strong',{},[_str+' ⬅'])
