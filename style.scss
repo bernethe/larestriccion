@@ -71,7 +71,7 @@ h1 {
 	padding: .5em;
 	margin: .5em 0;
 
-	&.restricted-red {
+	&.restricted-red,  &.restricted-red-fixed {
 		background-color: $_r;
 	}
 	&.restricted-yellow {
