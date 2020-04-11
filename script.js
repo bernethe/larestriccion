@@ -76,12 +76,10 @@ function cambioPlaca() {
 
 	if(document.querySelector('.card.restricted-red') != null) {
 		document.querySelector('.card.restricted-red').classList.remove('restricted-red');
-	}
-	if(document.querySelector('.card.restricted-yellow') != null) {
-		document.querySelector('.card.restricted-yellow').classList.remove('restricted-yellow');
+		document.querySelector('.card.restricted-red-wknd').classList.remove('restricted-red-wknd');
 	}
 	
-	document.querySelector('#semana .col:nth-child('+((_s%2)+6)+') .card').classList.add('restricted-yellow');
+	document.querySelector('#semana .col:nth-child('+((_s%2)+6)+') .card').classList.add('restricted-red-wknd');
 
 	if(_s==0) {
 		_s = 10;
