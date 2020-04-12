@@ -94,3 +94,15 @@ i.pc {
 	&.pc-red { background-color: $_r; }
 	&.pc-yellow { background-color: $_a; }
 }
+a.svg-link {
+	@include xlink {
+		color: $_blue;
+		padding: 0 8px;
+	}
+	& svg {
+		fill: currentColor;
+		display: inline-block;
+		width: 2.5em;
+		height: 2.5em;
+	}
+}
