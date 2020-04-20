@@ -41,6 +41,11 @@ body {
 	background-size: cover;
 	background-color: #edebe8;
 }
+a {
+	@include xlink {
+		color: $_blue;
+	}
+}
 h1 {
 	font-weight: 800;
 }
