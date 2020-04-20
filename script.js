@@ -26,28 +26,4 @@ function cambioPlaca() {
 	
 }
 
-// https://github.com/escueladigital/EDui
-// Crear elementos con atributos e hijo
-function createCustomElement(element,attributes,children) {
-	var customElement = document.createElement(element);
-	if (children !== undefined) children.forEach(el => {
-		if (el.nodeType) {
-			if (el.nodeType === 1 || el.nodeType === 11) customElement.appendChild(el);
-		} else {
-			customElement.innerHTML += el;
-		}
-	});
-	addAttributes(customElement,attributes);
-	return customElement;
-}
-
-// Añadir un objeto de atributos a un elemento
-function addAttributes(element, attrObj) {
-	for (var attr in attrObj) {
-		if (attrObj.hasOwnProperty(attr)) {
-			element.setAttribute(attr,attrObj[attr]);
-		}
-	}
-}
-
 document.addEventListener('DOMContentLoaded', main, !1);
