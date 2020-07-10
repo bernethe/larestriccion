@@ -70,19 +70,59 @@ h1 {
 	color: $_blue;
 }
 .card {
-	background-color: $_v;
-	color: #fff;
 	border-radius: .5em;
 	padding: .5em;
 	margin: .5em 0;
 
-	&.restricted-yellow, &.restricted-yellow-wknd {
-		background-color: $_a;
-		color: #000
-	}
-	&.restricted-red,  &.restricted-red-wknd {
+	// &.restricted-yellow, &.restricted-yellow-wknd {
+	// 	background-color: $_a;
+	// 	color: #000;
+	// }
+	// &.restricted-red,  &.restricted-red-wknd {
+	// 	background-color: $_r;
+	// 	color: #fff;
+	// }
+}
+#semana_naranja {
+	& .card {
 		background-color: $_r;
 		color: #fff;
+		 
+		&.card-wknd {
+			background-color: $_a;
+			color: #000;
+
+			&.card-r {
+				background-color: $_r;
+				color: #fff;
+			}
+		}
+		 
+		&.card-y {
+			background-color: $_a;
+			color: #000;
+		}
+	}
+}
+#semana_amarilla {
+	& .card {
+		background-color: $_v;
+		color: #fff;
+		 
+		&.card-wknd {
+			background-color: $_a;
+			color: #000;
+			
+			&.card-r {
+				background-color: $_r;
+				color: #fff;
+			}
+		}
+		 
+		&.card-r {
+			background-color: $_r;
+			color: #fff;
+		}
 	}
 }
 .notas {
