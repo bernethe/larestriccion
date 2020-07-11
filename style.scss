@@ -45,6 +45,20 @@ a {
 	@include xlink {
 		color: $_blue;
 	}
+	&.win-link {
+		@include xlink {
+			display: block;
+			text-align: center;
+			text-decoration: none;
+			padding: .5em;
+			border: 3px solid $_a;
+			border-radius: .5em;
+			background-color: rgba($_blue,.05);
+		}
+		&:hover {
+			background-color: rgba($_blue,.25);
+		}
+	}
 }
 h1 {
 	font-weight: 800;
