@@ -139,6 +139,27 @@ h1 {
 		}
 	}
 }
+#semana {
+	& .card {
+		background-color: $_v;
+		color: #fff;
+		 
+		&.card-wknd {
+			background-color: $_a;
+			color: #000;
+			
+			&.card-r {
+				background-color: $_r;
+				color: #fff;
+			}
+		}
+		 
+		&.card-r {
+			background-color: $_r;
+			color: #fff;
+		}
+	}
+}
 .notas {
 	font-size: .75em;
 }
