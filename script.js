@@ -13,22 +13,10 @@ function cambioPlaca() {
 	}
 
 	for(var i = 0; i < 7; i++) {
-		document.querySelectorAll('#semana_naranja .card')[i].classList.remove('card-y');
-		document.querySelectorAll('#semana_naranja .card')[i].classList.remove('card-r');
-		document.querySelectorAll('#semana_naranja .card')[i].classList.remove('card-g');
-		document.querySelectorAll('#semana_amarilla .card')[i].classList.remove('card-y');
-		document.querySelectorAll('#semana_amarilla .card')[i].classList.remove('card-r');
-		document.querySelectorAll('#semana_amarilla .card')[i].classList.remove('card-g');
 		document.querySelectorAll('#semana .card')[i].classList.remove('card-y');
 		document.querySelectorAll('#semana .card')[i].classList.remove('card-r');
 		document.querySelectorAll('#semana .card')[i].classList.remove('card-g');
 	}
-
-	document.querySelectorAll('#semana_naranja .card')[_eleN].classList.add('card-y');
-	document.querySelectorAll('#semana_naranja .card-wknd')[_s%2].classList.add('card-r');
-
-	document.querySelectorAll('#semana_amarilla .card')[_eleN].classList.add('card-r');
-	document.querySelectorAll('#semana_amarilla .card-wknd')[_s%2].classList.add('card-r');
 
 	document.querySelectorAll('#semana .card')[_eleN].classList.add('card-r');
 	document.querySelectorAll('#semana .card-wknd')[_s%2].classList.add('card-r');
