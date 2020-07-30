@@ -7,9 +7,6 @@ function main() {
 function cambioPlaca() {
 	var _s = parseInt(document.getElementById('placa').value);
 
-	document.getElementById('cal_y').dataset.placa = _s;
-	document.getElementById('cal_o').dataset.placa = _s;
-
 	var _eleN = (Math.ceil(_s/2))-1;
 	if(_s == 0) {
 		_eleN = 4;
