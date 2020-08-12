@@ -345,6 +345,11 @@ table.cal {
 			background-color: $_r;
 			color: #fff;
 		}
+
+		&.d5, &.d6 {
+			background-color: $_a;
+			color: #000;
+		}
 	}
 	
 	&[data-placa="1"] {
