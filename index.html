@@ -24,6 +24,12 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'UA-162545754-1');
 </script>
+<!-- Load Leaflet from CDN -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Load Esri Leaflet from CDN -->
+<script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
 </head>
 
 <body>
@@ -190,18 +196,17 @@ gtag('config', 'UA-162545754-1');
 </div>
 <div class="container">
 	<div class="row">
+		<div class="col">
+			<h3 class="text-center">Zonas Naranja:</h3>
+			<div id="map" style="width: 100%; height: 500px;"></div>
+		</div>
+	</div>
+	<div class="row">
 		<div class="col-12 text-center">
 			<h3>Compartir en:</h3>
 			<a href="whatsapp://send?text=https://larestriccion.com/" class="svg-link"><svg><use href="/img/rrss.svg#whatsapp"/></svg></a>
 			<a href="https://www.facebook.com/sharer.php?src=bm&v=4&i=1298038027&u=https%3A%2F%2Flarestriccion.com%2F&t=La%20Restricci%C3%B3n%20-%20Restricci%C3%B3n%20vehicular%20sanitaria%20emitida%20por%20Costa%20Rica%20en%20semana%20santa" target="_blank" class="svg-link"><svg class="svg-icon"><use href="/img/rrss.svg#facebook"/></svg></a>
 		</div>
-	</div>
-	<div class="row mt-3">
-		<!-- <div class="col-sm-4 offset-sm-4">
-			<a href="https://estoyalertacr.com/" target="_blank" class="win-link">
-				<small>Conozca los lugares con alerta naranja en:</small> <strong>estoyalertacr.com</strong>
-			</a>
-		</div> -->
 	</div>
 	<div class="row">
 		<div class="col-12 text-center">
@@ -215,5 +220,42 @@ gtag('config', 'UA-162545754-1');
 		</div>
 	</div>
 </div>
+
+<script>
+
+var map = L.map('map').setView([ 9.92,-84.14], 9);
+L.esri.basemapLayer("Streets").addTo(map);
+
+// all services can be seen at https://services8.arcgis.com/XvhbIGOePiqXJBao/ArcGIS/rest/services
+var ARCGIS_DISTRITOS_ALERTA = 'https://services8.arcgis.com/XvhbIGOePiqXJBao/ArcGIS/rest/services/Distritos_Alerta_COVID19/FeatureServer/0' // details of alerts
+var ARCGIS_DISTRITAL_ALERTA = 'https://services8.arcgis.com/XvhbIGOePiqXJBao/ArcGIS/rest/services/Alerta_Distrital_CNE/FeatureServer/0' // district level basic categories
+var ARCGIS_CANTONAL_ALERTA = 'https://services8.arcgis.com/XvhbIGOePiqXJBao/ArcGIS/rest/services/Alerta_Cantonal_CNE/FeatureServer/0'
+var ARCGIS_DEFAULT = ARCGIS_DISTRITAL_ALERTA
+
+var districts = L.esri.featureLayer({
+	url: ARCGIS_DEFAULT,
+	style: function (feature) {
+		let baseOpts = {
+			stroke: true, weight: 2
+		}
+		if (feature.properties.Alerta === 'Naranja') {
+			return { ...baseOpts, color: "#f5ab53", opacity: 0.4, fillOpacity: 0.33 }
+		} else if (feature.properties.Alerta === 'Amarilla') {
+			return  { ...baseOpts, fillColor: "#f8f88c", color: "#8d7f22", opacity: 0.4, fillOpacity: 0.25 }
+		} else if (feature.properties.Alerta === 'Roja') {
+			return { ...baseOpts, color: "#ba1a1a", opacity: 0.4, fillOpacity: 0.30 }
+		} else {
+			return { ...baseOpts, color: "#FFFFFF", opacity: 0.4, fillOpacity: 0.00 };
+		}
+	}
+}).addTo(map);
+
+var districtPopupTemplate = "<div class='popup'><h3>Alerta {Alerta}</h3><h4>{distrito}, {canton}, {provincia}</h4></div>";
+
+districts.bindPopup(function(item){
+	item.feature.properties.provincelink = item.feature.properties.provincia.toLowerCase().replace(/\s/, '-')
+	return L.Util.template(districtPopupTemplate, item.feature.properties)
+});
+</script>
 </body>
 </html>
