@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: larestriccion.com
+Token: c4c300e9d218aa667729dd0e1a79b70afafa614d2d3f961e01ff19fda4767e49
