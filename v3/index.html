@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Restricción - Restricción vehicular sanitaria emitida en Costa Rica por el COVID-19</title>
+<meta property="og:title" content="La Restricción">
+<meta property="og:description" content="Restricción vehicular sanitaria emitida en Costa Rica por el COVID-19">
+<meta property="og:image" content="https://larestriccion.com/img/og-r.png">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<link rel="shortcut icon" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/touch-icon-iphone.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/touch-icon-ipad.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/touch-icon-iphone-retina.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/touch-icon-ipad-retina.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=20200717">
+<script src="/script.js?v=20200717"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162545754-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-162545754-1');
+</script>
+<!-- Load Leaflet from CDN -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Load Esri Leaflet from CDN -->
+<script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-12 text-center"><h1>La Restricción</h1></div>
+	</div>
+	<div class="row">
+		<div class="col-4 col-sm-2 offset-4 offset-sm-5">
+			<img src="img/no-circula.svg" alt="La Restricción" class="img-fluid">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-10 offset-1 text-center">
+			<small>Seleccione el <strong>último dígito</strong> de su número de placa para conocer cuando circula.</small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6 col-sm-4 offset-3 offset-sm-4">
+			<select id="placa">
+				<option selected hidden></option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option>
+			</select>
+		</div>
+	</div>
+</div>
+<div class="container d-none" id="resultado">
+	<div class="row mt-3">
+		<div class="col-12 text-center">
+			<h2>Restricción para Agosto 2020 <br> <small>Placas terminadas en <strong id="end_placa"></strong></small></h2>
+		</div>
+	</div>
+	<div class="row text">
+		<div class="col-sm-5">
+			<h3 class="text-center">Zona AMARILLA</h3>
+			<table class="cal" id="cal_y">
+				<thead>
+					<tr>
+						<th>Lun</th>
+						<th>Mar</th>
+						<th>Mie</th>
+						<th>Jue</th>
+						<th>Vie</th>
+						<th>Sab</th>
+						<th>Dom</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="5"></td>
+						<td class="fa d5">1</td>
+						<td class="fa d6">2</td>
+					</tr>
+					<tr>
+						<td class="fa d0">3</td>
+						<td class="fa d1">4</td>
+						<td class="fa d2">5</td>
+						<td class="fa d3">6</td>
+						<td class="fa d4">7</td>
+						<td class="fa d5">8</td>
+						<td class="fa d6">9</td>
+					</tr>
+					<tr><td class="fc d0">10</td>
+						<td class="fc d1">11</td>
+						<td class="fc d2">12</td>
+						<td class="fc d3">13</td>
+						<td class="fc d4">14</td>
+						<td class="fc d5">15</td>
+						<td class="fc d6">16</td>
+					</tr>
+					<tr><td class="fc d0">17</td>
+						<td class="fc d1">18</td>
+						<td class="fc d2">19</td>
+						<td class="fc d3">20</td>
+						<td class="fc d4">21</td>
+						<td class="fa d5">22</td>
+						<td class="fa d6">23</td>
+					</tr>
+					<tr><td class="fa d0">24</td>
+						<td class="fa d1">25</td>
+						<td class="fa d2">26</td>
+						<td class="fa d3">27</td>
+						<td class="fa d4">28</td>
+						<td class="fa d5">29</td>
+						<td class="fa d6">30</td>
+					</tr>
+					<tr>
+						<td class="nill">31</td>
+						<td colspan="6"></td>
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				<i class="pc pc-green"></i> Circula de 5 a.m. a 9 p.m. de lunes a viernes.<br>
+				<i class="pc pc-red"></i> No circula<br>
+				<i class="pc pc-yellow"></i> Circula de 5 a.m. a 7 p.m.
+			</p>
+		</div>
+		<div class="col-sm-5 offset-sm-2">
+			<h3 class="text-center">Zona NARANJA</h3>
+			<table class="cal" id="cal_o">
+				<thead>
+					<tr>
+						<th>Lun</th>
+						<th>Mar</th>
+						<th>Mie</th>
+						<th>Jue</th>
+						<th>Vie</th>
+						<th>Sab</th>
+						<th>Dom</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="5"></td>
+						<td class="fa d5">1</td>
+						<td class="fa d6">2</td>
+					</tr>
+					<tr>
+						<td class="fa d0">3</td>
+						<td class="fa d1">4</td>
+						<td class="fa d2">5</td>
+						<td class="fa d3">6</td>
+						<td class="fa d4">7</td>
+						<td class="fa d5">8</td>
+						<td class="fa d6">9</td>
+					</tr>
+					<tr><td class="fc d0">10</td>
+						<td class="fc d1">11</td>
+						<td class="fc d2">12</td>
+						<td class="fc d3">13</td>
+						<td class="fc d4">14</td>
+						<td class="fa d5">15</td>
+						<td class="fa d6">16</td>
+					</tr>
+					<tr><td class="fc d0">17</td>
+						<td class="fc d1">18</td>
+						<td class="fc d2">19</td>
+						<td class="fc d3">20</td>
+						<td class="fc d4">21</td>
+						<td class="fa d5">22</td>
+						<td class="fa d6">23</td>
+					</tr>
+					<tr><td class="fa d0">24</td>
+						<td class="fa d1">25</td>
+						<td class="fa d2">26</td>
+						<td class="fa d3">27</td>
+						<td class="fa d4">28</td>
+						<td class="fa d5">29</td>
+						<td class="fa d6">30</td>
+					</tr>
+					<tr>
+						<td class="nill">31</td>
+						<td colspan="6"></td>
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				<i class="pc pc-green"></i> Circula de 5 a.m. a 9 p.m. de lunes a viernes.<br>
+				<i class="pc pc-red"></i> No circula<br>
+				<i class="pc pc-yellow"></i> Circula de 5 a.m. a 7 p.m.
+			</p>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h3 class="text-center">Zonas Naranja:</h3>
+			<div id="map" style="width: 100%; height: 500px;"></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 text-center">
+			<h3>Compartir en:</h3>
+			<a href="whatsapp://send?text=https://larestriccion.com/" class="svg-link"><svg><use href="/img/rrss.svg#whatsapp"/></svg></a>
+			<a href="https://www.facebook.com/sharer.php?src=bm&v=4&i=1298038027&u=https%3A%2F%2Flarestriccion.com%2F&t=La%20Restricci%C3%B3n%20-%20Restricci%C3%B3n%20vehicular%20sanitaria%20emitida%20por%20Costa%20Rica%20en%20semana%20santa" target="_blank" class="svg-link"><svg class="svg-icon"><use href="/img/rrss.svg#facebook"/></svg></a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 text-center">
+			<p class="text-center"><small>Made with ❤️ by <a href="mailto:bernethe@gmail.com">bernethe</a>
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_s-xclick" />
+			<input type="hidden" name="hosted_button_id" value="JH76829RT9RUE" />
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+			<img alt="" border="0" src="https://www.paypal.com/en_CR/i/scr/pixel.gif" width="1" height="1" />
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+
+var map = L.map('map').setView([ 9.92,-84.14], 9);
+//L.esri.basemapLayer("Streets").addTo(map);
+
+// all services can be seen at https://services8.arcgis.com/XvhbIGOePiqXJBao/ArcGIS/rest/services
+var ARCGIS_DISTRITOS_ALERTA = 'https://services8.arcgis.com/XvhbIGOePiqXJBao/ArcGIS/rest/services/Distritos_Alerta_COVID19/FeatureServer/0' // details of alerts
+var ARCGIS_DISTRITAL_ALERTA = 'https://services8.arcgis.com/XvhbIGOePiqXJBao/ArcGIS/rest/services/Alerta_Distrital_CNE/FeatureServer/0' // district level basic categories
+var ARCGIS_CANTONAL_ALERTA = 'https://services8.arcgis.com/XvhbIGOePiqXJBao/ArcGIS/rest/services/Alerta_Cantonal_CNE/FeatureServer/0'
+var ARCGIS_DEFAULT = ARCGIS_DISTRITAL_ALERTA
+
+var districts = L.esri.featureLayer({
+	url: ARCGIS_DEFAULT,
+	style: function (feature) {
+		let baseOpts = {
+			stroke: true, weight: 2
+		}
+		if (feature.properties.Alerta === 'Naranja') {
+			return { ...baseOpts, color: "#f5ab53", opacity: 0.4, fillOpacity: 0.33 }
+		} else if (feature.properties.Alerta === 'Amarilla') {
+			return  { ...baseOpts, fillColor: "#f8f88c", color: "#8d7f22", opacity: 0.4, fillOpacity: 0.25 }
+		} else if (feature.properties.Alerta === 'Roja') {
+			return { ...baseOpts, color: "#ba1a1a", opacity: 0.4, fillOpacity: 0.30 }
+		} else {
+			return { ...baseOpts, color: "#FFFFFF", opacity: 0.4, fillOpacity: 0.00 };
+		}
+	}
+}).addTo(map);
+
+var districtPopupTemplate = "<div class='popup'><h3>Alerta {Alerta}</h3><h4>{distrito}, {canton}, {provincia}</h4></div>";
+
+districts.bindPopup(function(item){
+	item.feature.properties.provincelink = item.feature.properties.provincia.toLowerCase().replace(/\s/, '-')
+	return L.Util.template(districtPopupTemplate, item.feature.properties)
+});
+</script>
+</body>
+</html>
