@@ -19,7 +19,7 @@ function cambioPlaca() {
 	}
 
 	document.querySelectorAll('#semana .card')[_eleN].classList.add('card-r');
-	document.querySelectorAll('#semana .card-wknd')[_s%2].classList.add('card-r');
+	//document.querySelectorAll('#semana .card-wknd')[_s%2].classList.add('card-r');
 
 	document.getElementById('resultado').classList.remove('d-none');
 	
