@@ -21,6 +21,10 @@ function cambioPlaca() {
 	document.querySelectorAll('#semana .card')[_eleN].classList.add('card-r');
 	//document.querySelectorAll('#semana .card-wknd')[_s%2].classList.add('card-r');
 
+	document.getElementById('cal_y').dataset.placa = _s;
+	document.getElementById('placa_show').innerHTML = _s;
+	document.getElementById('placa_show_cal').innerHTML = _s;
+
 	document.getElementById('resultado').classList.remove('d-none');
 	
 }

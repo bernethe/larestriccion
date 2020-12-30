@@ -1,26 +1,25 @@
 'use strict';
 
-var _now;
-var _day = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
 function main() {
 	document.getElementById('placa').addEventListener('change',cambioPlaca,!1);
 }
 function cambioPlaca() {
-	var _s = document.getElementById('placa').value;
-	_now = new Date();
+	var _s = parseInt(document.getElementById('placa').value);
 
-	if(document.querySelector('.card.restricted-red') != null) {
-		document.querySelector('.card.restricted-red').classList.remove('restricted-red');
-		document.querySelector('.card.restricted-red-wknd').classList.remove('restricted-red-wknd');
+	var _eleN = (Math.ceil(_s/2))-1;
+	if(_s == 0) {
+		_eleN = 4;
 	}
-	
-	document.querySelector('#semana .col:nth-child('+((_s%2)+6)+') .card').classList.add('restricted-red-wknd');
 
-	if(_s==0) {
-		_s = 10;
+	for(var i = 0; i < 7; i++) {
+		document.querySelectorAll('#semana .card')[i].classList.remove('card-y');
+		document.querySelectorAll('#semana .card')[i].classList.remove('card-r');
+		document.querySelectorAll('#semana .card')[i].classList.remove('card-g');
 	}
-	document.querySelector('#semana .col:nth-child('+Math.ceil(_s/2)+') .card').classList.add('restricted-red');
+
+	document.querySelectorAll('#semana .card')[_eleN].classList.add('card-r');
+	//document.querySelectorAll('#semana .card-wknd')[_s%2].classList.add('card-r');
 
 	document.getElementById('resultado').classList.remove('d-none');
 	
