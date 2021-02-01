@@ -228,10 +228,6 @@ table.cal {
 				background-color: $_r;
 				color: #fff;
 			}
-			&.d6 {
-				background-color: $_a;
-				color: #000;
-			}
 		}
 	}
 	&[data-placa="2"] {
@@ -239,10 +235,6 @@ table.cal {
 			&.d0, &.d6 {
 				background-color: $_r;
 				color: #fff;
-			}
-			&.d5 {
-				background-color: $_a;
-				color: #000;
 			}
 		}
 	}
@@ -253,10 +245,6 @@ table.cal {
 				background-color: $_r;
 				color: #fff;
 			}
-			&.d6 {
-				background-color: $_a;
-				color: #000;
-			}
 		}
 	}
 	&[data-placa="4"] {
@@ -264,10 +252,6 @@ table.cal {
 			&.d1, &.d6 {
 				background-color: $_r;
 				color: #fff;
-			}
-			&.d5 {
-				background-color: $_a;
-				color: #000;
 			}
 		}
 	}
@@ -278,10 +262,6 @@ table.cal {
 				background-color: $_r;
 				color: #fff;
 			}
-			&.d6 {
-				background-color: $_a;
-				color: #000;
-			}
 		}
 	}
 	&[data-placa="6"] {
@@ -289,10 +269,6 @@ table.cal {
 			&.d2, &.d6 {
 				background-color: $_r;
 				color: #fff;
-			}
-			&.d5 {
-				background-color: $_a;
-				color: #000;
 			}
 		}
 	}
@@ -303,10 +279,6 @@ table.cal {
 				background-color: $_r;
 				color: #fff;
 			}
-			&.d6 {
-				background-color: $_a;
-				color: #000;
-			}
 		}
 	}
 	&[data-placa="8"] {
@@ -314,10 +286,6 @@ table.cal {
 			&.d3, &.d6 {
 				background-color: $_r;
 				color: #fff;
-			}
-			&.d5 {
-				background-color: $_a;
-				color: #000;
 			}
 		}
 	}
@@ -328,10 +296,6 @@ table.cal {
 				background-color: $_r;
 				color: #fff;
 			}
-			&.d6 {
-				background-color: $_a;
-				color: #000;
-			}
 		}
 	}
 	&[data-placa="0"] {
@@ -340,19 +304,15 @@ table.cal {
 				background-color: $_r;
 				color: #fff;
 			}
-			&.d5 {
-				background-color: $_a;
-				color: #000;
-			}
 		}
 	}
 
-	&[data-placa="9"], &[data-placa="0"] {
-		& tr td.d4 {
-			&.bg-sky {
-				background-color: $_r !important;
-				color: #fff !important;
-			}
-		}
-	}
+	// &[data-placa="9"], &[data-placa="0"] {
+	// 	& tr td.d4 {
+	// 		&.bg-sky {
+	// 			background-color: $_r !important;
+	// 			color: #fff !important;
+	// 		}
+	// 	}
+	// }
 }
