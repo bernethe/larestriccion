@@ -239,4 +239,18 @@ table.cal {
 			color: #000;
 		}
 	}
+
+	&[data-placa="1"], &[data-placa="3"], &[data-placa="5"], &[data-placa="7"], &[data-placa="9"] {
+		& > div:nth-child(6) .card {
+			background-color: $_r;
+			// color: #000;
+		}
+	}
+	&[data-placa="0"], &[data-placa="2"], &[data-placa="4"], &[data-placa="6"], &[data-placa="8"] {
+		& > div:nth-child(7) .card {
+			background-color: $_r;
+			// color: #000;
+		}
+	}
+
 }
