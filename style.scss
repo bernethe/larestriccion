@@ -207,36 +207,36 @@ table.cal {
 
 	&[data-placa="1"], &[data-placa="2"] {
 		& > div:nth-child(1) .card {
-			background-color: $_a;
-			color: #000;
+			background-color: $_r;
+			// color: #000;
 		}
 	}
 
 	&[data-placa="3"], &[data-placa="4"] {
 		& > div:nth-child(2) .card {
-			background-color: $_a;
-			color: #000;
+			background-color: $_r;
+			// color: #000;
 		}
 	}
 
 	&[data-placa="5"], &[data-placa="6"] {
 		& > div:nth-child(3) .card {
-			background-color: $_a;
-			color: #000;
+			background-color: $_r;
+			// color: #000;
 		}
 	}
 
 	&[data-placa="7"], &[data-placa="8"] {
 		& > div:nth-child(4) .card {
-			background-color: $_a;
-			color: #000;
+			background-color: $_r;
+			// color: #000;
 		}
 	}
 
 	&[data-placa="9"], &[data-placa="0"] {
 		& > div:nth-child(5) .card {
-			background-color: $_a;
-			color: #000;
+			background-color: $_r;
+			// color: #000;
 		}
 	}
 
