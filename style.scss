@@ -195,10 +195,34 @@ table.cal {
 		& td {
 			padding: 1em;
 			text-align: center;
+			color: #fff;
 
 			&.nill {
 				background-color: #ccc;
+				color: #777;
 			}
+		}
+	}
+
+	&[data-placa="1"], &[data-placa="3"], &[data-placa="5"], &[data-placa="7"], &[data-placa="9"] {
+		& tr td.odd {
+			background-color: $_v;
+			// color: #000;
+		}
+		& tr td.even {
+			background-color: $_r;
+			// color: #fff;
+		}
+	}
+
+	&[data-placa="0"], &[data-placa="2"], &[data-placa="4"], &[data-placa="6"], &[data-placa="8"] {
+		& tr td.odd {
+			background-color: $_r;
+			// color: #000;
+		}
+		& tr td.even {
+			background-color: $_v;
+			// color: #fff;
 		}
 	}
 

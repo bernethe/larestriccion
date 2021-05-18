@@ -13,6 +13,8 @@ function cambioPlaca() {
 
 	document.getElementById('semana').dataset.placa = _s;
 
+	document.getElementById('calendario').dataset.placa = _s;
+
 	document.getElementById('resultado').classList.remove('d-none');
 	
 }
