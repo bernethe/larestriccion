@@ -15,8 +15,8 @@
 <link rel="apple-touch-icon" sizes="114x114" href="/img/touch-icon-iphone-retina.png">
 <link rel="apple-touch-icon" sizes="144x144" href="/img/touch-icon-ipad-retina.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=20210829">
-<script src="/script.js?v=20210829"></script>
+<link rel="stylesheet" href="/style.css?v=20210914">
+<script src="/script.js?v=20210914"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162545754-1"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -56,7 +56,7 @@ gtag('config', 'UA-162545754-1');
 			<h3>Hoy es <strong id="todayDate"></strong></h3>
 		</div>
 	</div>
-	<div class="row text-center" id="semana" data-placa="">
+	<div class="row text-center d-none" id="semana" data-placa="">
 		<div class="col">
 			<div class="card">
 				<h4>Lunes</h4>
@@ -100,11 +100,53 @@ gtag('config', 'UA-162545754-1');
 			</div>
 		</div>
 	</div>
+	<table class="cal" id="calendario">
+		<thead>
+			<tr>
+				<th>LUN</th>
+				<th>MAR</th>
+				<th>MIE</th>
+				<th>JUE</th>
+				<th>VIE</th>
+				<th>SAB</th>
+				<th>DOM</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="wr1 wr2">13 <br><small>Septiembre</small></td>
+				<td class="wr3 wr4">14 <br><small>Septiembre</small></td>
+				<td class="wr5 wr6">15 <br><small>Septiembre</small></td>
+				<td class="wr7 wr8">16 <br><small>Septiembre</small></td>
+				<td class="wr9 wr0">17 <br><small>Septiembre</small></td>
+				<td class="even">18 <br><small>Septiembre</small></td>
+				<td class="odd">19 <br><small>Septiembre</small></td>
+			</tr>
+			<tr>
+				<td class="wr1 wr2">20 <br><small>Septiembre</small></td>
+				<td class="wr3 wr4">21 <br><small>Septiembre</small></td>
+				<td class="wr5 wr6">22 <br><small>Septiembre</small></td>
+				<td class="wr7 wr8">23 <br><small>Septiembre</small></td>
+				<td class="wr9 wr0">24 <br><small>Septiembre</small></td>
+				<td class="odd">25 <br><small>Septiembre</small></td>
+				<td class="even">26 <br><small>Septiembre</small></td>
+			</tr>
+			<tr>
+				<td class="wr1 wr2">27 <br><small>Septiembre</small></td>
+				<td class="wr3 wr4">28 <br><small>Septiembre</small></td>
+				<td class="wr5 wr6">29 <br><small>Septiembre</small></td>
+				<td class="wr7 wr8">30 <br><small>Septiembre</small></td>
+				<td class="nill"></td>
+				<td class="nill"></td>
+				<td class="nill"></td>
+			</tr>
+		</tbody>
+	</table>
 	<div class="row mt-3">
 		<div class="col-sm-4 offset-sm-4">
 			<h3>Cualquier zona del país</h3>
 			<p>
-				<i class="pc pc-green"></i> Circula de 5 a.m. a 10 p.m.<br>
+				<i class="pc pc-green"></i> Circula de 5 a.m. a 9 p.m.<br>
 				<!-- <i class="pc pc-yellow"></i> No circula dentro de la región central.<br> -->
 				<i class="pc pc-red"></i> No circula
 			</p>
